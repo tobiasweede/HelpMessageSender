@@ -4,11 +4,14 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][unreleased]
 ### Added
-- Ability to use 'HelpMessageSender' on Windows systems
-- Created and enhanced the documentation
 ### Changed
 ### Fixed
 ### Removed
+
+## [3.0.0] - 2015-10-05
+### Added
+- Ability to use 'HelpMessageSender' on Windows systems
+- Created and enhanced the documentation
 
 ## [1.0.0] - 2015-10-04
 ### Added
@@ -17,4 +20,5 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Fixed
 - A crash on exit
 
-[unreleased]: https://github.com/markuspg/HelpMessageSender/compare/v1.0.0...HEAD
+[unreleased]: https://github.com/markuspg/HelpMessageSender/compare/v3.0.0...HEAD
+[3.0.0]: https://github.com/markuspg/HelpMessageSender/compare/v1.0.0...3.0.0
