@@ -20,3 +20,10 @@ HEADERS  += src/helpmessagewindow.h
 FORMS    += gui/helpmessagewindow.ui
 
 QMAKE_CXXFLAGS += -std=c++11
+
+OTHER_FILES += \
+    CHANGELOG.md \
+    LICENSE \
+    README.md \
+    data/HelpMessageSender.conf \
+    doc/doc.md

@@ -4,6 +4,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][unreleased]
 ### Added
+- Ability to use 'HelpMessageSender' on Windows systems
+- Created and enhanced the documentation
 ### Changed
 ### Fixed
 ### Removed
