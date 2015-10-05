@@ -21,4 +21,4 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - A crash on exit
 
 [unreleased]: https://github.com/markuspg/HelpMessageSender/compare/v3.0.0...HEAD
-[3.0.0]: https://github.com/markuspg/HelpMessageSender/compare/v1.0.0...3.0.0
+[3.0.0]: https://github.com/markuspg/HelpMessageSender/compare/v1.0.0...v3.0.0
