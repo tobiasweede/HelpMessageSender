@@ -11,7 +11,6 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = HelpMessageSender
 TEMPLATE = app
 
-
 SOURCES += src/main.cpp\
         src/helpmessagewindow.cpp
 
@@ -26,4 +25,7 @@ OTHER_FILES += \
     LICENSE \
     README.md \
     data/HelpMessageSender.conf \
-    doc/doc.md
+    doc/doc.md \
+    translations/hmc-de_DE.ts
+
+TRANSLATIONS = translations/hmc-de_DE.ts

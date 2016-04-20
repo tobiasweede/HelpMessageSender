@@ -22,6 +22,12 @@
 
 int main( int argc, char *argv[] ) {
     QApplication a{ argc, argv };
+
+    QTranslator qtTranslator;
+    qtTranslator.load( "hmc-" + QLocale::system().name(),
+                       QLibraryInfo::location( QLibraryInfo::TranslationsPath ) );
+    a.installTranslator( &qtTranslator );
+
 #ifdef Q_OS_UNIX
     QSettings labSettings{ "Economic Laboratory", "HelpMessageSender" };
 #endif
