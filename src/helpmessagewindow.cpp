@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 Markus Prasser
+ * Copyright 2015-2016 Markus Prasser
  *
  * This file is part of HelpMessageSender.
  *
@@ -69,16 +69,18 @@ void lcHelpMessageWindow::DisplayError( QAbstractSocket::SocketError socketError
     case QAbstractSocket::RemoteHostClosedError:
         return;
     case QAbstractSocket::HostNotFoundError:
-        errorMessage = tr( "An error occurred: The server could not be found for error reporting:\n" );
+        errorMessage = tr( "An error occurred: The server could not be"
+                           " found for error reporting:\n" );
         break;
     case QAbstractSocket::ConnectionRefusedError:
-        errorMessage = tr( "An error occurred: The connection was refused by the laboratory server:\n" );
+        errorMessage = tr( "An error occurred: The connection was refused"
+                           " by the laboratory server:\n" );
         break;
     default:
         errorMessage = tr( "The following error occured:\n" );
     }
-    errorMessage.append( tr("%1").arg( helpMessageSocket->errorString() ) );
-    errorMessage.append( "\n\nPlease raise your hand to notify the experimenters." );
+    errorMessage.append( tr( "%1" ).arg( helpMessageSocket->errorString() ) );
+    errorMessage.append( tr( "\n\nPlease raise your hand to notify the experimenters." ) );
     ui->LSendingSuccess->setText( errorMessage );
 }
 
@@ -86,10 +88,11 @@ void lcHelpMessageWindow::OpenedSession() {
     // Save the used configuration
     QNetworkConfiguration config = networkSession->configuration();
     QString id;
-    if ( config.type() == QNetworkConfiguration::UserChoice )
+    if ( config.type() == QNetworkConfiguration::UserChoice ) {
         id = networkSession->sessionProperty( QLatin1String{ "UserChoiceConfiguration" } ).toString();
-    else
+    } else {
         id = config.identifier();
+    }
 
     QSettings settings{ QSettings::UserScope, QLatin1String{ "QtProject" } };
     settings.beginGroup( QLatin1String{ "QtNetwork" } );
@@ -98,12 +101,13 @@ void lcHelpMessageWindow::OpenedSession() {
 }
 
 void lcHelpMessageWindow::ReadHelpReply() {
-    QDataStream in( helpMessageSocket );
-    in.setVersion( QDataStream::Qt_5_2 );
+    QDataStream in{ helpMessageSocket };
+    in.setVersion( QDataStream::Qt_5_3 );
 
     if ( blockSize == 0 ) {
-        if ( helpMessageSocket->bytesAvailable() < ( int )sizeof( quint16 ) )
+        if ( helpMessageSocket->bytesAvailable() < static_cast< qint64 >( sizeof( quint16 ) ) ) {
             return;
+        }
 
         in >> blockSize;
     }

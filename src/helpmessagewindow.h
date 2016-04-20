@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 Markus Prasser
+ * Copyright 2015-2016 Markus Prasser
  *
  * This file is part of HelpMessageSender.
  *
@@ -30,8 +30,7 @@ namespace Ui {
 class HelpMessageWindow;
 }
 
-class lcHelpMessageWindow : public QMainWindow
-{
+class lcHelpMessageWindow final : public QMainWindow {
     Q_OBJECT
 
 public:
@@ -46,7 +45,7 @@ private:
     QNetworkSession *networkSession = nullptr;
     const quint16 serverPort = 0;
     const QHostAddress serverAddress;
-    Ui::HelpMessageWindow *ui;
+    Ui::HelpMessageWindow *ui = nullptr;
 
 private slots:
     void DisplayError( QAbstractSocket::SocketError socketError );
