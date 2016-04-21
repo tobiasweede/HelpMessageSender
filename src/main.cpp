@@ -24,7 +24,7 @@ int main( int argc, char *argv[] ) {
     QApplication a{ argc, argv };
 
     QTranslator qtTranslator;
-    qtTranslator.load( "hmc-" + QLocale::system().name(),
+    qtTranslator.load( "://translations/hmc-" + QLocale::system().name(),
                        QLibraryInfo::location( QLibraryInfo::TranslationsPath ) );
     a.installTranslator( &qtTranslator );
 

@@ -30,19 +30,22 @@
         <location filename="../src/helpmessagewindow.cpp" line="72"/>
         <source>An error occurred: The server could not be found for error reporting:
 </source>
-        <translation>Ein Fehler ist aufgetreten: Der Server konnte nicht erreicht werden:</translation>
+        <translation>Ein Fehler ist aufgetreten: Der Server konnte nicht erreicht werden:
+</translation>
     </message>
     <message>
         <location filename="../src/helpmessagewindow.cpp" line="76"/>
         <source>An error occurred: The connection was refused by the laboratory server:
 </source>
-        <translation>Ein Fehler ist aufgetreten: Die Verbindung wurde vom Laborserver abgelehnt:</translation>
+        <translation>Ein Fehler ist aufgetreten: Die Verbindung wurde vom Laborserver abgelehnt:
+</translation>
     </message>
     <message>
         <location filename="../src/helpmessagewindow.cpp" line="80"/>
         <source>The following error occured:
 </source>
-        <translation>Folgender Fehler ist aufgetreten:</translation>
+        <translation>Folgender Fehler ist aufgetreten:
+</translation>
     </message>
     <message>
         <location filename="../src/helpmessagewindow.cpp" line="82"/>
@@ -54,7 +57,9 @@
         <source>
 
 Please raise your hand to notify the experimenters.</source>
-        <translation>Bitte heben Sie Ihre Hand um die Experimentatoren auf sich aufmerksam zu machen.</translation>
+        <translation>
+
+Bitte heben Sie Ihre Hand um die Experimentatoren auf sich aufmerksam zu machen.</translation>
     </message>
     <message>
         <location filename="../src/helpmessagewindow.cpp" line="123"/>

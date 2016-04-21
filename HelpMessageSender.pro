@@ -28,4 +28,6 @@ OTHER_FILES += \
     doc/doc.md \
     translations/hmc-de_DE.ts
 
+RESOURCES += hmc_resources.qrc
+
 TRANSLATIONS = translations/hmc-de_DE.ts
