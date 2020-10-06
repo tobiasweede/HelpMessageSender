@@ -29,7 +29,7 @@ int main( int argc, char *argv[] )
         std::string filename;
         if(std::filesystem::exists("./HelpMessageSender.json"))
             filename = "./HelpMessageSender.json";
-        else if(std::filesystem::exists("./HelpMessageSender.json"))
+        else if(std::filesystem::exists("/etc/HelpMessageSender/HelpMessageSender.json"))
             filename = "/etc/HelpMessageSender/HelpMessageSender.json";
         else
             throw std::runtime_error("No config not found");
