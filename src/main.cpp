@@ -19,19 +19,41 @@
 
 #include "helpmessagewindow.h"
 #include <QApplication>
+#include <QDebug>
+#include <exception>
 
 int main( int argc, char *argv[] )
 {
     QApplication a( argc, argv );
-#ifdef Q_OS_UNIX
-    QSettings labSettings{ "Economic Laboratory", "HelpMessageSender" };
-#endif
-#ifdef Q_OS_WIN
-    settings{ "C:\\EcoLabLib\\HelpMessageSender.conf", QSettings::IniFormat, this };
-#endif
-    lcHelpMessageWindow w{ labSettings.value( "server_ip", "127.0.0.1" ).toString(),
-                           static_cast<unsigned short int>( labSettings.value( "client_help_server_port", "0" ).toUInt() ) };
-    w.show();
+    try {
+        std::string filename;
+        if(std::filesystem::exists("./HelpMessageSender.json"))
+            filename = "./HelpMessageSender.json";
+        else if(std::filesystem::exists("./HelpMessageSender.json"))
+            filename = "/etc/HelpMessageSender/HelpMessageSender.json";
+        else
+            throw std::runtime_error("No config not found");
+        std::ifstream f(filename.c_str());
+        pt::ptree root;
+        if (f.good())
+            pt::read_json(f, root);
+        else
+            throw std::runtime_error("Error reading config file" + filename);
+        QString server_ip = QString::fromStdString(root.get<std::string>("server_ip",
+                                                                         "No server_ip found / set in config!"));
+        quint16 client_help_server_port = root.get<unsigned short>("client_help_server_port",
+                                                                   0);
+        // qDebug() << server_ip;
+        // qDebug() << client_help_server_port;
 
-    return a.exec();
+        lcHelpMessageWindow w{ server_ip,
+                    client_help_server_port };
+        w.show();
+        return a.exec();
+    } catch(std::exception& e) {
+        qDebug() << e.what();
+        QMessageBox msgBox;
+        msgBox.setText( QString::fromStdString(e.what()));
+        msgBox.exec();
+    }
 }

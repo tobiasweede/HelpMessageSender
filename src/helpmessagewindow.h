@@ -26,6 +26,11 @@
 #include <QMessageBox>
 #include <QtNetwork>
 
+#include <boost/property_tree/ptree.hpp>
+#include <boost/property_tree/json_parser.hpp>
+
+namespace pt = boost::property_tree;
+
 namespace Ui {
 class HelpMessageWindow;
 }
@@ -53,6 +58,7 @@ private slots:
     void OpenedSession();
     void ReadHelpReply();
     void RequestHelp();
+    void on_PBAskForHelp_clicked();
 };
 
 #endif // HELPMESSAGEWINDOW_H

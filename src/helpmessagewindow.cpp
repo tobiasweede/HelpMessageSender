@@ -130,3 +130,8 @@ void lcHelpMessageWindow::RequestHelp() {
     helpMessageSocket->abort();
     helpMessageSocket->connectToHost( serverAddress, serverPort );
 }
+
+void lcHelpMessageWindow::on_PBAskForHelp_clicked()
+{
+
+}

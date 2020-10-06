@@ -19,7 +19,7 @@ HEADERS  += src/helpmessagewindow.h
 
 FORMS    += gui/helpmessagewindow.ui
 
-QMAKE_CXXFLAGS += -std=c++11
+QMAKE_CXXFLAGS += -std=c++17
 
 OTHER_FILES += \
     CHANGELOG.md \
@@ -27,3 +27,9 @@ OTHER_FILES += \
     README.md \
     data/HelpMessageSender.conf \
     doc/doc.md
+
+# include path for boost under FreeBSD
+INCLUDEPATH += /usr/local/include/
+
+DISTFILES += \
+    data/HelpMessageSender.json
